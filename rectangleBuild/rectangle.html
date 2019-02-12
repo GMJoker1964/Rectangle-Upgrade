@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="rectangle" width="1280px" height="720px" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    function Rectangle(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.getHeight = function () {
+            return this.height;
+        }
+        this.setWidth = function (width) {
+            this.width = width;
+        }
+        this.setHeight = function (height) {
+            this.height = height;
+        }
+        this.getPermiter = function () {
+            return (width + height) * 2;
+        }
+        this.getArea = function () {
+            return width * height;
+        }
+    };
+
+    function createRectangle() {
+        var rectangle = new Rectangle(60, 80, 1000, 500);
+        var ctx = document.getElementById("rectangle").getContext("2d");
+        ctx.beginPath();
+        ctx.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        ctx.stroke();
+    };
+    createRectangle();
+
+    var rectangle = new Rectangle(60, 80, 1000, 500);
+    var width = rectangle.getWidth();
+    var height = rectangle.getHeight();
+    var per = rectangle.getPermiter();
+    var area = rectangle.getArea();
+
+    document.write("per: " + per + " area: " + area);
+</script>
+</body>
+</html>
